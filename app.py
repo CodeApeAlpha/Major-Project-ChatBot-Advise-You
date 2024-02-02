@@ -12,7 +12,7 @@ from langchain_community.vectorstores import Chroma
 app = Flask(__name__)
 
 # Load the API key from the environment variable set in Render
-openai_api_key = os.environ.get("APIKEY")
+openai_api_key = os.environ.get("OPENAI_API_KEY")
 if openai_api_key:
     os.environ["OPENAI_API_KEY"] = openai_api_key
 
