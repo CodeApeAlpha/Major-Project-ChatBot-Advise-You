@@ -12,8 +12,8 @@ from langchain_community.vectorstores import Chroma
 
 app = Flask(__name__)
 
-def confiqure():
-    load_dotenv()
+
+load_dotenv()
 
 os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
 
