@@ -17,7 +17,7 @@ if openai_api_key:
     os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = True
+PERSIST = False
 
 query = None
 
