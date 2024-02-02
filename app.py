@@ -1,4 +1,4 @@
-import constants
+from dotenv import load_dotenv
 import os
 from flask import Flask, request, render_template, jsonify
 import openai
@@ -12,7 +12,10 @@ from langchain_community.vectorstores import Chroma
 
 app = Flask(__name__)
 
-os.environ["OPENAI_API_KEY"] = constants.APIKEY
+def confiqure():
+    load_dotenv()
+
+os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
 PERSIST = True
