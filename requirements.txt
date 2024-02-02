@@ -5,3 +5,4 @@ langchain_openai==0.0.5
 openai==1.10.0
 python-dotenv==1.0.1
 chromadb==0.4.22
+sqlite>=3.35.0
