@@ -1,0 +1,5 @@
+Flask==2.3.2
+langchain==0.1.5
+langchain_community==0.0.17
+langchain_openai==0.0.5
+openai==1.10.0
