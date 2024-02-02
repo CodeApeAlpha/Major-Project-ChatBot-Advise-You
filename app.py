@@ -16,6 +16,10 @@ app = Flask(__name__)
 load_dotenv()
 
 os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
+# Load the API key from the environment variable set in Render
+openai_api_key = os.environ.get("APIKEY")
+if openai_api_key:
+    os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
 PERSIST = True
