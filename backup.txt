@@ -1,5 +1,6 @@
 import os
 from flask import Flask, request, render_template, jsonify
+import openai
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
@@ -57,5 +58,4 @@ def handle_message():
     return jsonify({'response': result['answer']})
 
 if __name__ == '__main__':
-    # Modify host and port to work with Render
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True)
