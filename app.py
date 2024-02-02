@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import os
 from flask import Flask, request, render_template, jsonify
 import openai
@@ -11,9 +10,6 @@ from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
 
 app = Flask(__name__)
-
-
-load_dotenv()
 
 os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
 # Load the API key from the environment variable set in Render
