@@ -1,5 +1,7 @@
+from dotenv import load_dotenv
 import os
 from flask import Flask, request, render_template, jsonify
+import openai
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
@@ -10,13 +12,13 @@ from langchain_community.vectorstores import Chroma
 
 app = Flask(__name__)
 
-# Load the API key from the environment variable set in Render
-openai_api_key = os.environ.get("OPENAI_API_KEY")
-if openai_api_key:
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+
+load_dotenv()
+
+os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = False
+PERSIST = True
 
 query = None
 
@@ -57,5 +59,4 @@ def handle_message():
     return jsonify({'response': result['answer']})
 
 if __name__ == '__main__':
-    # Modify host and port to work with Render
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True)
