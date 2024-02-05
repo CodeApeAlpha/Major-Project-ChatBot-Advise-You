@@ -57,6 +57,3 @@ def handle_message():
     chat_history.append((message, result['answer']))
     
     return jsonify({'response': result['answer']})
-
-if __name__ == '__main__':
-    app.run()
