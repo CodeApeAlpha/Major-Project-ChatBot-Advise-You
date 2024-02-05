@@ -59,4 +59,4 @@ def handle_message():
     return jsonify({'response': result['answer']})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
