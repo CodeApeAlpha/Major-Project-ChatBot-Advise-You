@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Command to update pip
 python -m pip install --upgrade pip
 
