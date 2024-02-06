@@ -9,6 +9,7 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
+import sqlite3
 
 app = Flask(__name__)
 
