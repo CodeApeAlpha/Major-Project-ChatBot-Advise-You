@@ -9,6 +9,7 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
+import sqlite3
 
 app = Flask(__name__)
 
@@ -43,7 +44,7 @@ chat_history = []
 
 @app.route('/')
 def chat_page():
-    return render_template('index.html')
+    return render_template('Index.html')
 
 @app.route('/api', methods=['POST'])
 def handle_message():
