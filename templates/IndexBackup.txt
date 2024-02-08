@@ -133,7 +133,7 @@
                     <div class="input-group">
                         <div class="textarea-send">
                             <!-- Create a textarea for user input -->
-                            <textarea class="form-control" id="message" placeholder="Ask Me Any Advisement Related Questions Fromm The HandBook" rows="4"></textarea>
+                            <textarea class="form-control" id="message" placeholder="Type your message" rows="4"></textarea>
                             <!-- Create a button for sending messages -->
                             <button type="submit" class="btn btn-send"><i class="fas fa-arrow-circle-right"></i> Send</button>
                         </div>
@@ -150,7 +150,6 @@
             const chatForm = document.getElementById("chat-form");
             const chatMessages = document.getElementById("chat-messages");
             const messageInput = document.getElementById("message");
-            const sendButton = chatForm.querySelector("button[type='submit']"); // Get the send button
     
             // Event listener for when the chat form is submitted
             chatForm.addEventListener("submit", function (e) {
@@ -160,9 +159,6 @@
                 if (messageText === "") {
                     return;
                 }
-    
-                // Disable the send button to prevent multiple submissions
-                sendButton.disabled = true;
     
                 // Create and display a user message
                 const userMessage = document.createElement("div");
@@ -192,11 +188,7 @@
                     // Scroll to the bottom of the chat to show the latest messages
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 })
-                .catch((error) => console.error(error))
-                .finally(() => {
-                    // Re-enable the send button after the request completes
-                    sendButton.disabled = false;
-                });
+                .catch((error) => console.error(error));
             });
     
             // Send message on Enter key press (without Shift)
@@ -207,6 +199,6 @@
                 }
             });
         });
-    </script>    
+    </script>
 </body>
 </html>
