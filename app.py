@@ -19,7 +19,7 @@ load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = True
+PERSIST = False
 
 query = None
 
