@@ -48,7 +48,7 @@ chat_history = []
 
 @app.route('/')
 def chat_page():
-    return render_template('index.html')
+    return render_template('Index.html')
 
 @app.route('/api', methods=['POST'])
 def handle_message():
