@@ -11,6 +11,10 @@ from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
 import sqlite3
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 app = Flask(__name__)
 
 
@@ -19,7 +23,7 @@ load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv('APIKEY')
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = False
+PERSIST = True
 
 query = None
 
