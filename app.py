@@ -54,9 +54,6 @@ def chat_page():
 def handle_message():
     global query
     message = request.json['message']
-
-    if message in ['quit', 'q', 'exit']:
-        return jsonify({'response': 'Goodbye!'})
     
     result = chain({"question": message, "chat_history": chat_history})
     chat_history.append((message, result['answer']))
